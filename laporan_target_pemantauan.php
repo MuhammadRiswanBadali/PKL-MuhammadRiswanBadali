@@ -40,7 +40,10 @@ include "koneksi.php";
         <b>BELUM TERCAPAI</b> = < 8 kali pemantauan / tahun
     </div>
 
-    <!-- FILTER TAHUN -->
+    <div class="info-box">
+        <b>Identifikasi dan lakukan observasi di wilayah-wilayah yang realisasi pemantauannya belum memenuhi target.</b><br>
+    </div>
+
     <form method="GET">
         <div class="row">
             <div class="col-sm-3">

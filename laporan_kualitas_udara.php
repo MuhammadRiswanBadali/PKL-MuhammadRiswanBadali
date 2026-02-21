@@ -27,7 +27,7 @@ include "koneksi.php";
     border-left: 4px solid #007bff;
     margin-bottom: 20px;
 }
-/* TAMBAHAN UNTUK TAMPILAN FILTER */
+
 .filter-info-box {
     background: #e9ecef;
     padding: 10px 15px;
@@ -52,6 +52,14 @@ include "koneksi.php";
 <div class="container-fluid">
     <h2 align="center" style=font-weight:bold>Laporan Rata-Rata Polutan Udara per Kabupaten/Kota</h2>
     <hr/>
+
+    <div class="info-box">
+        <b>Acuan Baku Mutu Tahunan PP No. 22 Tahun 2021:</b>
+        NO₂ = 50 µg/m³ &nbsp;|&nbsp;
+        SO₂ = 45 µg/m³ &nbsp;|&nbsp;
+        PM₂.₅ = 15 µg/m³<br><br>
+        <b>Angka yang tertera pada kolom NO₂, SO₂, dan PM₂.₅ merupakan nilai rata-rata tahunan yang dihitung berdasarkan seluruh data pemantauan yang terekam selama periode satu tahun di lokasi tersebut.</b><br>
+    </div>
    
     <form method="get" action="">
         <div class="row filter-row">
@@ -100,7 +108,6 @@ include "koneksi.php";
         $tahun = $_GET['tahun'] ?? '';
         $kabupaten = $_GET['kabupaten'] ?? '';
 
-        // ========= TAMPILKAN FILTER YANG DIGUNAKAN =========
         $filter_terpakai = [];
         $filter_display = "";
 
@@ -112,7 +119,6 @@ include "koneksi.php";
             $filter_terpakai[] = "Kabupaten/Kota: <span class='filter-value'>" . htmlspecialchars($kabupaten) . "</span>";
         }
 
-        // Gabungkan filter dengan separator " | "
         if (!empty($filter_terpakai)) {
             $filter_display = implode("<span class='filter-separator'> | </span>", $filter_terpakai);
         }
@@ -142,7 +148,6 @@ include "koneksi.php";
         if (mysqli_num_rows($query) == 0) {
             echo "<div class='alert alert-warning'>⚠️ Tidak ada data untuk filter yang dipilih.</div>";
             
-            // Tampilkan filter yang digunakan meski data kosong
             if (!empty($filter_display)) {
                 echo "<div class='filter-info-box'>
                         <span class='filter-label'>Filter yang digunakan:</span><br>
@@ -151,7 +156,6 @@ include "koneksi.php";
             }
         } else {
 
-            // Tampilkan filter yang digunakan di atas tabel
             if (!empty($filter_display)) {
                 echo "<div class='filter-info-box'>
                         <span class='filter-label'>Filter yang digunakan:</span><br>

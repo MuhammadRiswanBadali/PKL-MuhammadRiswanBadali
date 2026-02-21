@@ -53,6 +53,14 @@ include "koneksi.php";
     <h2 align="center" style="font-weight:bold">Laporan Hasil Pemeriksaan Kualitas Udara</h2>
     <hr>
 
+    <div class="info-box">
+        <b>Acuan Baku Mutu Harian (24 jam) PP No. 22 Tahun 2021:</b>
+        NO₂ = 65 µg/m³ &nbsp;|&nbsp;
+        SO₂ = 60 µg/m³ &nbsp;|&nbsp;
+        PM₂.₅ = 55 µg/m³<br><br>
+        <b>Angka yang tertera pada kolom NO₂, SO₂, dan PM₂.₅ merupakan nilai rata-rata selama durasi pemantauan</b><br>
+    </div>
+
     <form method="GET">
         <div class="row">
 
